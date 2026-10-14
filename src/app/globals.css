@@ -10,14 +10,48 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-breed-origin: #333333;
+  --color-coral: #f2968f;
+  --color-icon-gray: #acacac;
+  --color-tag-confident: #acd7ff;
+  --color-tag-alert: #eda8b3;
+  --color-tag-playful: #c5e59c;
+  --color-tag-loyal: #f1e689;
+  --color-text-secondary: #333333;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer components {
+  .breed-card {
+    @apply bg-white rounded-2xl shadow-lg overflow-hidden;
+  }
+
+  .breed-card-content {
+    @apply p-3;
+  }
+
+  .breed-card-content h2 {
+    @apply font-semibold mb-1;
+  }
+
+  .breed-card-content p {
+    @apply text-breed-origin/40 whitespace-pre-line;
+  }
+
+  .breed-section-title {
+    @apply text-sm text-text-secondary/50;
+  }
+
+  .breed-section-text {
+    @apply text-base text-text-secondary/75 leading-6;
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);

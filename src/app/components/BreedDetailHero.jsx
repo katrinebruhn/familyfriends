@@ -19,7 +19,7 @@ const BreedDetailHero = ({ image, breedname }) => {
       >
         <IoIosArrowBack />
       </Link>
-      <IoStar className="absolute top-6 right-10 text-white fill-white bg-white/40 rounded-full p-2 text-[32px]" />
+      <IoStar className="absolute top-6 right-10 text-white fill-white bg-white/40 rounded-full p-1.5 text-[32px]" />
 
       <div className="absolute bottom-6 left-10 flex items-center gap-2 rounded-xl bg-white/40 p-2 text-white">
         <Image

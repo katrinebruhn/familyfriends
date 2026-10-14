@@ -1,4 +1,8 @@
-import { IoCellular, IoWifi, IoBatteryFull } from "react-icons/io5";
+import {
+  IoCellular,
+  IoWifi,
+  IoBatteryFull,
+} from "react-icons/io5";
 
 const StatusBar = () => {
   return (

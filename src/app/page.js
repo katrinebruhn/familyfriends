@@ -21,6 +21,7 @@ export default function ListView() {
         <BreedCard
           breedname="Affenpinscher"
           origin={"Northern,\nGermany"}
+          isFavorite={true}
         />
         <BreedCard
           breedname="Afghan Hound"

@@ -1,5 +1,3 @@
-// import Link from "next/link";
-import StatusBar from "../../components/StatusBar";
 import Header from "../../components/Header";
 import BottomNav from "../../components/BottomNav";
 import BreedDetailHero from "../../components/BreedDetailHero";
@@ -8,7 +6,6 @@ import BreedTag from "../../components/BreedTag";
 const DetailView = () => {
   return (
     <>
-      <StatusBar />
       <Header />
       <BreedDetailHero
         image="/dummydog.jpg"
@@ -37,7 +34,7 @@ const DetailView = () => {
           despite its small size.
         </p>
       </section>
-      <section className="px-5 mt-5">
+      <section className="px-5 mt-5 pb-24">
         <h2 className="breed-section-title">
           Breed history
         </h2>
@@ -49,8 +46,6 @@ const DetailView = () => {
           to 'monkey-like terrier'.
         </p>
       </section>
-      {/* <h1>DetailView</h1>
-      <Link href="/">Back to ListView</Link> */}
       <BottomNav active="favorites" />
     </>
   );

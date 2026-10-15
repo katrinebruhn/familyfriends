@@ -8,7 +8,7 @@ const SearchBar = () => {
         aria-label="Search"
         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-coral text-white"
       >
-        <IoSearch className="h-6 w-6 scale-x-[-1]" />{" "}
+        <IoSearch className="h-6 w-6 scale-x-[-1]" />
       </button>
 
       <input

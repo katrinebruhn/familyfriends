@@ -15,11 +15,12 @@ const BreedDetailHero = ({ image, breedname }) => {
       />
       <Link
         href="/"
+        aria-label="Tilbage til forsiden"
         className="absolute top-6 left-10 bg-white rounded-full p-2"
       >
         <IoIosArrowBack />
       </Link>
-      <IoStar className="absolute top-6 right-10 text-white fill-white bg-white/40 rounded-full p-1.5 text-[32px]" />
+      <IoStar className="absolute top-6 right-10 rounded-full bg-white/40 p-1.5 text-[32px] text-white" />
 
       <div className="absolute bottom-6 left-10 flex items-center gap-2 rounded-xl bg-white/40 p-2 text-white">
         <Image

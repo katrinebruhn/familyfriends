@@ -18,6 +18,7 @@
   --color-tag-playful: #c5e59c;
   --color-tag-loyal: #f1e689;
   --color-text-secondary: #333333;
+  --color-tag-text: #6b8b42;
 }
 
 @layer components {

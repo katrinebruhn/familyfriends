@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { IoStar, IoStarOutline } from "react-icons/io5";
+import FavoriteButton from "./FavoriteButton";
 
 const BreedCard = ({
   breedname,
   origin,
   image = "/dummydog.jpg",
-  isFavorite = false,
+  imageId,
 }) => {
   return (
     <article className="breed-card">
@@ -15,13 +15,11 @@ const BreedCard = ({
           width={400}
           height={400}
           alt={breedname}
-          className="h-28 w-full object-cover rounded-2xl"
+          className="h-40 w-full rounded-2xl object-cover object-center"
         />
-        {isFavorite ? (
-          <IoStar className="absolute top-2 right-2 size-9 rounded-full bg-white/30 p-2 text-white" />
-        ) : (
-          <IoStarOutline className="absolute top-2 right-2 size-9 rounded-full bg-white/30 p-2 text-white" />
-        )}
+        <div className="absolute top-2 right-2 z-10">
+          <FavoriteButton imageId={imageId} />
+        </div>
       </div>
       <div className="breed-card-content">
         <h2>{breedname}</h2>

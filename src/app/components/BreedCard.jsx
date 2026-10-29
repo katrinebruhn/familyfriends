@@ -6,6 +6,8 @@ const BreedCard = ({
   origin,
   image = "/dummydog.jpg",
   imageId,
+  isFavorite,
+  favoriteId,
 }) => {
   return (
     <article className="breed-card">
@@ -17,8 +19,12 @@ const BreedCard = ({
           alt={breedname}
           className="h-40 w-full rounded-2xl object-cover object-center"
         />
-        <div className="absolute top-2 right-2 z-10">
-          <FavoriteButton imageId={imageId} />
+        <div className="pointer-events-auto absolute top-2 right-2 z-20">
+          <FavoriteButton
+            imageId={imageId}
+            isFavorite={isFavorite}
+            favoriteId={favoriteId}
+          />
         </div>
       </div>
       <div className="breed-card-content">

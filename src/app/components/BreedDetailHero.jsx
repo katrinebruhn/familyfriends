@@ -3,9 +3,9 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { IoIosArrowBack } from "react-icons/io";
-import { IoStar } from "react-icons/io5";
+import FavoriteButton from "./FavoriteButton";
 
-const BreedDetailHero = ({ image, breedname }) => {
+const BreedDetailHero = ({ image, breedname, imageId }) => {
   const router = useRouter();
   return (
     <div className="relative px-5">
@@ -24,7 +24,9 @@ const BreedDetailHero = ({ image, breedname }) => {
       >
         <IoIosArrowBack />
       </button>
-      <IoStar className="absolute top-6 right-10 rounded-full bg-white/40 p-1.5 text-[32px] text-white" />
+      <div className="absolute top-6 right-10 z-10">
+        <FavoriteButton imageId={imageId} />
+      </div>
 
       <div className="absolute bottom-6 left-10 flex items-center gap-2 rounded-xl bg-white/40 p-2 text-white">
         <Image

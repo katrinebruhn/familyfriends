@@ -1,18 +1,50 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { IoStar, IoStarOutline } from "react-icons/io5";
-import { addFavorite } from "../actions/actions";
+import {
+  addFavorite,
+  removeFavorite,
+} from "../actions/actions";
 
-export default function FavoriteButton({ imageId }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+export default function FavoriteButton({
+  imageId,
+  isFavorite = false,
+  favoriteId = null,
+}) {
+  const router = useRouter();
 
-  async function handleClick() {
+  const [isFavoriteClient, setIsFavoriteClient] =
+    useState(isFavorite);
+  const [favoriteIdClient, setFavoriteIdClient] =
+    useState(favoriteId);
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function handleClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (isLoading || !imageId) return;
+
+    setIsLoading(true);
+
     try {
-      await addFavorite(imageId);
-      setIsFavorite(true);
+      if (isFavoriteClient) {
+        await removeFavorite(favoriteIdClient);
+        setIsFavoriteClient(false);
+        setFavoriteIdClient(null);
+      } else {
+        const favorite = await addFavorite(imageId);
+        setIsFavoriteClient(true);
+        setFavoriteIdClient(favorite.id);
+      }
+
+      router.refresh();
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -20,9 +52,16 @@ export default function FavoriteButton({ imageId }) {
     <button
       type="button"
       onClick={handleClick}
-      className="text-white text-xl rounded-full bg-white/50 p-1"
+      disabled={isLoading || !imageId}
+      aria-label={
+        isFavoriteClient
+          ? "Fjern favorit"
+          : "Tilføj favorit"
+      }
+      aria-pressed={isFavoriteClient}
+      className="rounded-full bg-white/50 p-1 text-xl text-white"
     >
-      {isFavorite ? <IoStar /> : <IoStarOutline />}
+      {isFavoriteClient ? <IoStar /> : <IoStarOutline />}
     </button>
   );
 }

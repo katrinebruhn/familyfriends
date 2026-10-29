@@ -24,6 +24,7 @@ export default async function DetailView({ params }) {
       <BreedDetailHero
         image={breed.image?.url || "/dummydog.jpg"}
         breedname={breed.name}
+        imageId={breed.image?.id}
       />
 
       <h1 className="text-3xl font-semibold px-5 mt-4">
@@ -72,7 +73,7 @@ export default async function DetailView({ params }) {
         </p>
       </section>
 
-      <BottomNav active="favorites" />
+      <BottomNav />
     </>
   );
 }

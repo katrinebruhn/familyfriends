@@ -3,6 +3,7 @@ import BottomNav from "./components/BottomNav";
 import BreedSearch from "./components/BreedSearch";
 import Loading from "./components/Loading";
 import { Suspense } from "react";
+import { getFavorites } from "./actions/actions";
 
 export default function ListView() {
   return (
@@ -30,5 +31,9 @@ async function BreedList() {
 
   const breeds = await response.json();
 
-  return <BreedSearch breeds={breeds} />;
+  const favorites = await getFavorites();
+
+  return (
+    <BreedSearch breeds={breeds} favorites={favorites} />
+  );
 }

@@ -18,7 +18,7 @@ const BottomNav = ({ active }) => {
         />
       </Link>
 
-      <Link href="/detailview" aria-label="Detailvisning">
+      <Link href="/favorites" aria-label="Favoritter">
         <IoStarOutline
           className={`h-6 w-6 ${active === "favorites" ? "text-coral" : "text-icon-gray"}`}
         />

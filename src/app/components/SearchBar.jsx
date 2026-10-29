@@ -1,6 +1,6 @@
 import { IoSearch } from "react-icons/io5";
 
-const SearchBar = () => {
+const SearchBar = ({ search, setSearch }) => {
   return (
     <div className="flex items-center gap-2 pl-2 pr-5">
       <button
@@ -14,6 +14,8 @@ const SearchBar = () => {
       <input
         type="search"
         placeholder="Search breeds..."
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
         className="flex-1 min-w-0 h-12 rounded-full border border-gray-300 px-4 outline-none"
       />
     </div>
